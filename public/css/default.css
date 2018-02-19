@@ -29,15 +29,22 @@ html { height: 100%; }
 }
 
 body {
+		font-family: 'Rock Salt', cursive;
     font-weight: 300;
     font-size: 15px;
-    color: #333;
+    color: black;
     overflow: scroll;
-    overflow-x: hidden;
+		overflow-x: hidden;
+		background: url(/images/sonido.png) repeat-x;
+		background-size: 100%;
+    background-position-y: 115px;
+    background-position-x: center;
+    background-color: #C5C1C0;
+    background-size: 600px;
 }
 
 a {
-	color: #555;
+	color: black;
 	text-decoration: none;
 }
 
@@ -60,17 +67,20 @@ a {
 }
 
 .container > header h1 {
-	font-size: 60px;
-	line-height: 38px;
+	font-size: 70px;
+	line-height: 60px;
 	margin: 0 auto;
 	font-weight: 700;
-	color: #333;
+	color: #1A2930;
+	text-transform: capitalize;
 }
 
 .container > header h1 span {
 	display: block;
 	font-size: 20px;
 	font-weight: 300;
+	text-transform: uppercase;
+	color: #1A2930
 }
 
 .main > p {
@@ -78,11 +88,13 @@ a {
 	padding: 50px 20px;
 }
 
-
 .og-grid li{
 	border-radius: 5px;
 }
 
 .og-grid input{
 	font-size: 24px;
+	color: white;
+	text-transform: uppercase;
+	font-family: 'Gloria Hallelujah', cursive;
 }

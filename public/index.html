@@ -15,13 +15,13 @@
 		color: ;
 		}
 		</style>
-		<link rel="stylesheet" type="text/css" href="/css/default.css" />
-		<link rel="stylesheet" type="text/css" href="/css/component.css" />
-		<link rel="stylesheet" type="text/css" href="/style.css" />
+		<link rel="stylesheet" type="text/css" href="http://10.0.0.22/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="http://10.0.0.22/css/component.css" />
 
+		
 		<script src="http://10.0.0.22/js/modernizr.custom.js"></script>
 
-
+	
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -32,21 +32,23 @@ ga('create', 'UA-XXXXXXXX-Y', 'auto');
 ga('send', 'pageview');
 </script>
 
+	<link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Rock+Salt" rel="stylesheet">
+
 	</head>
 	<body>
 		<div class="container">
 							<header class="clearfix">
-				<h1>Noise Machine<span>Raspberry sounds</span></h1>
+				<h1>Noise Machine<span></span></h1>
 			</header>
-			<div class="talk">
-				<form class="speech" action="http://10.0.0.22:9000/talk/" method="post" id="talking">
+			<div class="talk mbtop">
+				<form class="speech" action="http://raspberry.local/talk/" method="post" id="talking">
 					<input type="text" name="speech" id="speech" />
 					<input type="submit" value="Talk!"/>
 				</form>
 			</div>
 
 			<div class="talk">
-				<form class="remote" action="http://10.0.0.22:9000/remote/" method="post" id="talking">
+				<form class="remote" action="http://raspberry.local/remote/" method="post" id="talking">
 					<input type="text" name="remote" id="remote" />
 					<input type="submit" value="Play!"/>
 				</form>
@@ -54,73 +56,110 @@ ga('send', 'pageview');
 
 			<div class="main">
 				<ul id="og-grid" class="og-grid">
-
-					<li style="background-color: #7DC3D6">
-						<form class="sound" action="http://10.0.0.22:9000/play/latigo" method="post" id="latigo">
-							<input type="submit"  value="Látigo"/>
+					
+					<li style="background-color: #1A2930">
+						<form class="sound" action="http://raspberry.local/play/Whip/crack_the_whip" method="post" id="Whip/crack_the_whip">
+							<input type="submit"  value="Whip!"/>
             </form>
 					</li>
-
-					<li style="background-color: yellow">
-						<form class="sound" action="http://10.0.0.22:9000/play/drums" method="post" id="drums">
-							<input type="submit"  value="Drums"/>
+					
+					<li style="background-color: #1A2930">
+						<form class="sound" action="http://raspberry.local/play/Wow/wow" method="post" id="Wow/wow">
+							<input type="submit"  value="Wow"/>
             </form>
 					</li>
-
-					<li style="background-color: red">
-						<form class="sound" action="http://10.0.0.22:9000/play/test" method="post" id="test">
-							<input type="submit"  value="Test"/>
+					
+					<li style="background-color: #1A2930">
+						<form class="sound" action="http://raspberry.local/play/NOOOOOOO/noooo" method="post" id="NOOOOOOO/noooo">
+							<input type="submit"  value="Noooo"/>
             </form>
 					</li>
-
+					
 				</ul>
-				<footer>
-
+				<footer>			
+	
 </footer>
 			</div>
 		</div>
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-		<script>
-			$(".sound").submit(function(event) {
+<script>
+  $.ajax({url: "http://raspberry.local:9000/list/", success: function(result){
+    
+    var list = $("#og-grid")
+
+    var json = $.parseJSON(result);
+    var sub = $(json).slice(0, 100)
+
+    $(sub).each(function(i,val){
+      console.log(i)
+      var li = $('<li/>')
+        .attr('style', 'background-color: #1A2930')
+        .appendTo(list);
+
+      var form = $('<form/>')
+            .addClass("sound")
+            .attr('method', 'post')
+            .appendTo(li)
+
+      $.each(val,function(k,v){
+        console.log(k+" : "+ v);
+        if(k == "Name"){
+          var submiting = $('<input >')
+            .attr("type", "submit")
+            .appendTo(form)
+          submiting.attr("value", v)
+        }
+        if(k == "URL"){
+          form.attr('action', 'http://raspberry.local:9000/play/' + v)
+        }
+
+      });
+
+      console.log("-------");
+    });
+
+    $(".sound").submit(function(event) {
+
+       
+      event.preventDefault();
+
+       
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+       
+      var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
+    });
+
+  }});
 
 
-				event.preventDefault();
+  $(".speech").submit(function(event) {
+     
+    event.preventDefault();
+
+     
+    var $form = $( this ),
+        url = $form.attr( 'action' );
+     
+    var posting = $.post( url, { name: $('#name').val(), speech: $('#speech').val() } );
+
+  });
 
 
-				var $form = $( this ),
-						url = $form.attr( 'action' );
+  $(".remote").submit(function(event) {
+     
+    event.preventDefault();
 
+     
+    var $form = $( this ),
+        url = $form.attr( 'action' );
+     
+    var posting = $.post( url, { name: $('#name').val(), remote: $('#remote').val() } );
 
-				var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
-			});
-
-
-			$(".speech").submit(function(event) {
-
-				event.preventDefault();
-
-
-				var $form = $( this ),
-						url = $form.attr( 'action' );
-
-				var posting = $.post( url, { name: $('#name').val(), speech: $('#speech').val() } );
-
-			});
-
-
-			$(".remote").submit(function(event) {
-
-				event.preventDefault();
-
-
-				var $form = $( this ),
-						url = $form.attr( 'action' );
-
-				var posting = $.post( url, { name: $('#name').val(), remote: $('#remote').val() } );
-
-			});
-		</script>
+  });
+</script>
 	</body>
 </html>
 
