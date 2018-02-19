@@ -1,5 +1,5 @@
 # Site settings
-baseurl = "http://10.0.0.22/"
+baseurl = "http://noise.netlify.com/"
 languageCode = "en-us"
 title = "Noise Machine"
 theme = "hugrid"

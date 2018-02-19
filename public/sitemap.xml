@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://10.0.0.22/categories/</loc>
+    <loc>http://noise.netlify.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://10.0.0.22/</loc>
+    <loc>http://noise.netlify.com/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://10.0.0.22/tags/</loc>
+    <loc>http://noise.netlify.com/tags/</loc>
     <priority>0</priority>
   </url>
   
