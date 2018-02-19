@@ -1,0 +1,100 @@
+/* General Demo Style */
+@import url(//fonts.googleapis.com/css?family=Lato:300,400,700);
+
+html { height: 100%; }
+
+*,
+*:after,
+*:before {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+/* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+body {
+		font-family: 'Rock Salt', cursive;
+    font-weight: 300;
+    font-size: 15px;
+    color: black;
+    overflow: scroll;
+		overflow-x: hidden;
+		background: url(/images/sonido.png) repeat-x;
+		background-size: 100%;
+    background-position-y: 115px;
+    background-position-x: center;
+    background-color: #C5C1C0;
+    background-size: 600px;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+.container {
+	width: 100%;
+	position: relative;
+}
+
+.container > header {
+	width: 90%;
+	max-width: 1240px;
+	margin: 0 auto;
+	position: relative;
+	padding: 0 30px 50px 30px;
+}
+
+.container > header {
+	padding: 60px 30px 50px;
+	text-align: center;
+}
+
+.container > header h1 {
+	font-size: 70px;
+	line-height: 60px;
+	margin: 0 auto;
+	font-weight: 700;
+	color: #1A2930;
+	text-transform: capitalize;
+}
+
+.container > header h1 span {
+	display: block;
+	font-size: 20px;
+	font-weight: 300;
+	text-transform: uppercase;
+	color: #1A2930
+}
+
+.main > p {
+	text-align: center;
+	padding: 50px 20px;
+}
+
+.og-grid li{
+	border-radius: 5px;
+}
+
+.og-grid input{
+	font-size: 24px;
+	color: white;
+	text-transform: uppercase;
+	font-family: 'Gloria Hallelujah', cursive;
+}

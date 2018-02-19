@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+			<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Noise Machine</title>
+		<meta name="description" content="Making raspberry sounds and talk since 2018" />
+		<meta name="keywords" content="raspberry, sounds, talk" />
+		<meta name="author" content="Zapic0" />
+		<meta name="generator" content="Hugo 0.26" />
+		<style>
+		body {
+		background: #f9f9f9;
+		color: ;
+		}
+		</style>
+		<link rel="stylesheet" type="text/css" href="/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="/css/component.css" />
+		<link rel="stylesheet" type="text/css" href="/style.css" />
+
+		<script src="http://10.0.0.22/js/modernizr.custom.js"></script>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-XXXXXXXX-Y', 'auto');
+ga('send', 'pageview');
+</script>
+
+	</head>
+	<body>
+		<div class="container">
+							<header class="clearfix">
+				<h1>Noise Machine<span>Raspberry sounds</span></h1>
+			</header>
+			<div class="talk">
+				<form class="speech" action="http://10.0.0.22:9000/talk/" method="post" id="talking">
+					<input type="text" name="speech" id="speech" />
+					<input type="submit" value="Talk!"/>
+				</form>
+			</div>
+
+			<div class="talk">
+				<form class="remote" action="http://10.0.0.22:9000/remote/" method="post" id="talking">
+					<input type="text" name="remote" id="remote" />
+					<input type="submit" value="Play!"/>
+				</form>
+			</div>
+
+			<div class="main">
+				<ul id="og-grid" class="og-grid">
+
+					<li style="background-color: #7DC3D6">
+						<form class="sound" action="http://10.0.0.22:9000/play/latigo" method="post" id="latigo">
+							<input type="submit"  value="Látigo"/>
+            </form>
+					</li>
+
+					<li style="background-color: yellow">
+						<form class="sound" action="http://10.0.0.22:9000/play/drums" method="post" id="drums">
+							<input type="submit"  value="Drums"/>
+            </form>
+					</li>
+
+					<li style="background-color: red">
+						<form class="sound" action="http://10.0.0.22:9000/play/test" method="post" id="test">
+							<input type="submit"  value="Test"/>
+            </form>
+					</li>
+
+				</ul>
+				<footer>
+
+</footer>
+			</div>
+		</div>
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+		<script>
+			$(".sound").submit(function(event) {
+
+
+				event.preventDefault();
+
+
+				var $form = $( this ),
+						url = $form.attr( 'action' );
+
+
+				var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
+			});
+
+
+			$(".speech").submit(function(event) {
+
+				event.preventDefault();
+
+
+				var $form = $( this ),
+						url = $form.attr( 'action' );
+
+				var posting = $.post( url, { name: $('#name').val(), speech: $('#speech').val() } );
+
+			});
+
+
+			$(".remote").submit(function(event) {
+
+				event.preventDefault();
+
+
+				var $form = $( this ),
+						url = $form.attr( 'action' );
+
+				var posting = $.post( url, { name: $('#name').val(), remote: $('#remote').val() } );
+
+			});
+		</script>
+	</body>
+</html>
+

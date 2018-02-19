@@ -1,0 +1,79 @@
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+		<script>
+			$.ajax({url: "http://raspberry.local:9000/list/", success: function(result){
+				//var parsedJson = $.parseJSON(result);
+				var list = $("#og-grid")
+
+				var json = $.parseJSON(result);
+				var sub = $(json).slice(0, 5000)
+
+				$(sub).each(function(i,val){
+					console.log(i)
+					var li = $('<li/>')
+						.attr('style', 'background-color: yellow')
+						.appendTo(list);
+
+					var form = $('<form/>')
+								.addClass("sound")
+								.attr('method', 'post')
+								.appendTo(li)
+
+					$.each(val,function(k,v){
+						console.log(k+" : "+ v);
+						if(k == "Name"){
+							var submiting = $('<input >')
+								.attr("type", "submit")
+								.appendTo(form)
+							submiting.attr("value", v)
+						}
+						if(k == "URL"){
+							form.attr('action', 'http://raspberry.local:9000/play/' + v)
+						}
+
+					});
+
+					console.log("-------");
+				});
+
+				$(".sound").submit(function(event) {
+
+					/* stop form from submitting normally */
+					event.preventDefault();
+
+					/* get the action attribute from the <form action=""> element */
+					var $form = $( this ),
+							url = $form.attr( 'action' );
+
+					/* Send the data using post with element id name and name2*/
+					var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
+				});
+
+    	}});
+
+
+			$(".speech").submit(function(event) {
+				/* stop form from submitting normally */
+				event.preventDefault();
+
+				/* get the action attribute from the <form action=""> element */
+				var $form = $( this ),
+						url = $form.attr( 'action' );
+				/* Send the data using post with element id name and name2*/
+				var posting = $.post( url, { name: $('#name').val(), speech: $('#speech').val() } );
+
+			});
+
+
+			$(".remote").submit(function(event) {
+				/* stop form from submitting normally */
+				event.preventDefault();
+
+				/* get the action attribute from the <form action=""> element */
+				var $form = $( this ),
+						url = $form.attr( 'action' );
+				/* Send the data using post with element id name and name2*/
+				var posting = $.post( url, { name: $('#name').val(), remote: $('#remote').val() } );
+
+			});
+		</script>
