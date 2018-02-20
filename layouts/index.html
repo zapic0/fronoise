@@ -9,25 +9,25 @@
 	<body>
 		<div class="container">
 				{{ partial "header.html" . }}
-			<div class="talk mbtop">
-				<form class="speech" action="http://{{ $.Site.Params.raspberrypi }}/talk/" method="post" id="talking">
-					<input type="text" name="speech" id="speech" />
+			<div class="talk mbtop hidden">
+				<form class="speech" action="http://{{ $.Site.Params.raspberrypi }}{{ $.Site.Params.port }}/talk/" method="post" id="talking">
+					<input type="text" name="speech" id="speech" placeholder="Text to speech" />
 					<input type="submit" value="Talk!"/>
 				</form>
 			</div>
 
-			<div class="talk">
-				<form class="remote" action="http://{{ $.Site.Params.raspberrypi }}/remote/" method="post" id="talking">
-					<input type="text" name="remote" id="remote" />
+			<div class="talk hidden">
+				<form class="remote" action="http://{{ $.Site.Params.raspberrypi }}{{ $.Site.Params.port }}/remote/" method="post" id="talking">
+					<input type="text" name="remote" id="remote" placeholder="File url to play (mp3)" />
 					<input type="submit" value="Play!"/>
 				</form>
 			</div>
 
-			<div class="main">
+			<div class="main hidden">
 				<ul id="og-grid" class="og-grid">
 					{{ range $.Site.Data.items.items }}
 					<li style="background-color: {{.color}}">
-						<form class="sound" action="http://{{ $.Site.Params.raspberrypi }}/play/{{.url}}" method="post" id="{{.url}}">
+						<form class="sound" action="http://{{ $.Site.Params.raspberrypi }}{{ $.Site.Params.port }}/play/{{.url}}" method="post" id="{{.url}}">
 							<input type="submit"  value="{{.title}}"/>
             </form>
 					</li>

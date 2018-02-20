@@ -41,14 +41,14 @@ ga('send', 'pageview');
 				<h1>Noise Machine<span></span></h1>
 			</header>
 			<div class="talk mbtop">
-				<form class="speech" action="http://raspberry.local/talk/" method="post" id="talking">
+				<form class="speech" action="http://raspberrypi.local:9000 /talk/" method="post" id="talking">
 					<input type="text" name="speech" id="speech" />
 					<input type="submit" value="Talk!"/>
 				</form>
 			</div>
 
 			<div class="talk">
-				<form class="remote" action="http://raspberry.local/remote/" method="post" id="talking">
+				<form class="remote" action="http://raspberrypi.local:9000/remote/" method="post" id="talking">
 					<input type="text" name="remote" id="remote" />
 					<input type="submit" value="Play!"/>
 				</form>
@@ -58,19 +58,19 @@ ga('send', 'pageview');
 				<ul id="og-grid" class="og-grid">
 					
 					<li style="background-color: #1A2930">
-						<form class="sound" action="http://raspberry.local/play/Whip/crack_the_whip" method="post" id="Whip/crack_the_whip">
+						<form class="sound" action="http://raspberrypi.local:9000/play/Whip/crack_the_whip" method="post" id="Whip/crack_the_whip">
 							<input type="submit"  value="Whip!"/>
             </form>
 					</li>
 					
 					<li style="background-color: #1A2930">
-						<form class="sound" action="http://raspberry.local/play/Wow/wow" method="post" id="Wow/wow">
+						<form class="sound" action="http://raspberrypi.local:9000/play/Wow/wow" method="post" id="Wow/wow">
 							<input type="submit"  value="Wow"/>
             </form>
 					</li>
 					
 					<li style="background-color: #1A2930">
-						<form class="sound" action="http://raspberry.local/play/NOOOOOOO/noooo" method="post" id="NOOOOOOO/noooo">
+						<form class="sound" action="http://raspberrypi.local:9000/play/NOOOOOOO/noooo" method="post" id="NOOOOOOO/noooo">
 							<input type="submit"  value="Noooo"/>
             </form>
 					</li>
@@ -84,7 +84,8 @@ ga('send', 'pageview');
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script>
-  $.ajax({url: "http://raspberry.local:9000/list/", success: function(result){
+
+  $.ajax({url: "http://" + "raspberrypi.local" + ":9000"  + "/list/", success: function(result){
     
     var list = $("#og-grid")
 
@@ -111,7 +112,7 @@ ga('send', 'pageview');
           submiting.attr("value", v)
         }
         if(k == "URL"){
-          form.attr('action', 'http://raspberry.local:9000/play/' + v)
+          form.attr('action', 'http://' + "raspberrypi.local" + ":9000" + '/play/' + v)
         }
 
       });
@@ -162,4 +163,3 @@ ga('send', 'pageview');
 </script>
 	</body>
 </html>
-

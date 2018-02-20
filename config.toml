@@ -18,7 +18,8 @@ publishdir = "public"
     author = "Zapic0"
     description = "Making raspberry sounds and talk since 2018"
     keywords = "raspberry, sounds, talk"
-    raspberrypi = "raspberry.local"
+    raspberrypi = "raspberrypi.local"
+    port = ":9000"
 
     # Body background color
     bodybgcolor = "#f9f9f9"

@@ -1,7 +1,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <script>
-  $.ajax({url: "http://raspberry.local:9000/list/", success: function(result){
+
+  var request = $.ajax({url: "http://" + {{ $.Site.Params.raspberrypi }} + {{ $.Site.Params.port }}  + "/list/", success: function(result){
     //var parsedJson = $.parseJSON(result);
     var list = $("#og-grid")
 
@@ -28,7 +29,7 @@
           submiting.attr("value", v)
         }
         if(k == "URL"){
-          form.attr('action', 'http://raspberry.local:9000/play/' + v)
+          form.attr('action', 'http://' + {{ $.Site.Params.raspberrypi }} + {{ $.Site.Params.port }} + '/play/' + v)
         }
 
       });
