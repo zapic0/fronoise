@@ -50,7 +50,16 @@
       var posting = $.post( url, { name: $('#name').val(), name2: $('#name2').val() } );
     });
 
+    $(".main").toggleClass("hidden");
+    $(".talk").toggleClass("hidden");
+    $(".loading").toggleClass("hidden");
+
   }});
+
+  request.fail(function(result){
+    $(".error").toggleClass("hidden");
+    $(".loading").toggleClass("hidden");
+  })
 
 
   $(".speech").submit(function(event) {
