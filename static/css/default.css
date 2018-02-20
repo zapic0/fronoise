@@ -37,7 +37,7 @@ body {
 		overflow-x: hidden;
 		background: url(/images/sonido.png) repeat-x;
 		background-size: 100%;
-    background-position-y: 115px;
+    background-position-y: 125px;
     background-position-x: center;
     background-color: #C5C1C0;
     background-size: 600px;
@@ -97,4 +97,56 @@ a {
 	color: white;
 	text-transform: uppercase;
 	font-family: 'Gloria Hallelujah', cursive;
+}
+
+.loading{
+	text-align: center;
+	font-size: 50px;
+	margin-top: 80px;
+	color: #F7CE3F;
+}
+
+.hidden{
+	display: none;
+}
+
+.error{
+	text-align: center;
+	font-size: 24px;
+	margin-top: 100px;
+	color: red;
+}
+
+
+@media screen and (max-width: 830px) {
+
+  body{
+		background-position-y: 70px;
+		background-size: 200px 40px;
+	}
+
+	.container > header h1 {
+		font-size: 33px;
+		line-height: 30px;
+		margin: 0 auto;
+		font-weight: 700;
+		color: #1A2930;
+		text-transform: capitalize;
+	}
+
+	.container > header {
+		padding: 25px 0 0 0;
+	}
+
+	.loading {
+		font-size: 25px;
+		margin-top: 60px;
+	}
+
+	.error{
+		font-size: 18px;
+		margin-top: 60px;
+	}
+
+
 }

@@ -15,7 +15,7 @@
 	height: 50px;
   font-size: 34px;
   background-color: white;
-  color: #0A1612;
+  color: #1A2930;
   border-radius: 5px;
   padding: 0 10px 0 10px;
 }
@@ -25,7 +25,7 @@
 	height: 50px;
   font-size: 25px;
   background-color: #F7CE3F;
-  color: #0A1612;
+  color: #1A2930;
   border-radius: 5px;
   border: solid 1px #F7CE3F;
   margin-left: 10px;
@@ -237,31 +237,26 @@
 
 	.og-expander h3 { font-size: 32px; }
 	.og-expander p { font-size: 13px; }
-  .og-expander a { font-size: 12px; }
-
-  .mbtop{
-    margin-top: 10px;
-  }
-
-  body{
-    background-position-y: 142px;
-  }
-
-}
-
-@media screen and (max-width: 650px) {
-
+	.og-expander a { font-size: 12px; }
 	.og-fullimg { display: none; }
   .og-details { float: none; width: 100%; }
 
   .mbtop{
-    margin-top: 10px;
-  }
+    margin-top: 60px;
+	}
 
-  body{
-    background-position-y: 142px;
-  }
+	.talk {
+		padding: 0px 0;
+		width: 100%;
+	}
+
+	.talk form input[type=text]{
+		font-size: 21px;
+	}
+
+	.talk form input[type=submit]{
+		margin-left: 0px;
+		font-size: 21px;
+	}
 
 }
-
-
